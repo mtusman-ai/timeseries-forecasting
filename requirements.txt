@@ -1,0 +1,8 @@
+# Runtime + training dependencies (CPU only).
+scikit-learn>=1.4
+pandas>=2.0
+numpy>=1.24
+joblib>=1.3
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
