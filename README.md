@@ -5,9 +5,9 @@ from a benchmark through to a served HTTP API. The model predicts several hours
 ahead, is back-tested against naive baselines at every horizon, and is served by
 a containerised FastAPI app with CI.
 
-The emphasis is honest evaluation: a forecast is only useful if it beats the
-trivial baseline a stakeholder could compute by hand, so every horizon is scored
-against persistence and a seasonal-naive baseline.
+A forecast is only useful if it beats the trivial baseline a stakeholder could
+compute by hand, so every horizon is scored against persistence and a
+seasonal-naive baseline.
 
 > **Honesty note.** The table below is produced by `src/train.py` and written to
 > `model_artefacts/`; this README quotes those reproduced numbers.
@@ -37,12 +37,14 @@ against persistence and a seasonal-naive baseline.
 | 12h | 2.005 | 2.288 | **1.715** |
 | 24h | 2.741 | **2.362** | 2.362 |
 
-The model beats both baselines at the 1h and 6h horizons. Beyond 12h,
-persistence and the 24h seasonal-naive become competitive on this highly
-persistent target. Reporting against naive baselines at every horizon is the
-point: it shows where the model adds real value and where a trivial baseline
-already suffices. That judgement, knowing when not to deploy a model, matters
-as much in production as the headline metric.
+The model beats both baselines at the 1h and 6h horizons. From 12h the gap
+closes: persistence is the stronger forecast at 12h (MAE 1.715 against the
+model's 2.005), and at 24h both persistence and the 24h seasonal-naive
+outperform the model on this highly persistent target. Reporting against naive
+baselines at every horizon is the point: it shows where the model adds real
+value and where a trivial baseline already suffices. That judgement, knowing
+when not to deploy a model, matters as much in production as the headline
+metric.
 
 Regenerate:
 
@@ -113,7 +115,7 @@ timeseries-forecasting/
 - A single target series with a single model family. Exogenous load covariates,
   probabilistic intervals, and a stronger sequence model are the natural
   extensions; the back-test harness makes adding them measurable.
-- Forecasts assume the recent regime holds; a real deployment would monitor for
+- Forecasts assume the recent regime holds. A real deployment would monitor for
   drift and re-train on a schedule.
 
 ## Licence

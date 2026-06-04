@@ -157,8 +157,9 @@ def _write_results_md(metrics: dict) -> None:
         )
     lines += [
         "",
-        "The model beats both baselines at the 1h and 6h horizons. Beyond 12h, "
-        "persistence and the 24h seasonal-naive become competitive on this highly "
+        "The model beats both baselines at the 1h and 6h horizons. From 12h the gap "
+        "closes: persistence is the stronger forecast at 12h, and at 24h both "
+        "persistence and the 24h seasonal-naive outperform the model on this highly "
         "persistent target. Reporting against naive baselines at every horizon is "
         "the point: it shows where the model adds real value and where a trivial "
         "baseline already suffices.",
