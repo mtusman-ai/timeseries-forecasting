@@ -1,5 +1,7 @@
 # timeseries-forecasting
 
+> **What this answers.** When can a planner trust an automated forecast, and when should they fall back to a simple rule? This forecasts electricity demand several hours ahead and scores every horizon against the naive baselines a stakeholder could compute by hand. **The finding:** the model leads at short horizons (1h and 6h) and loses to persistence and seasonal baselines from 12h out. **The takeaway** is not "use the model" but "trust it to about six hours, then switch to a baseline" — knowing that boundary is what stops a team acting on a number worse than a guess.
+
 Multi-horizon time-series forecasting on a public electricity dataset, taken
 from a benchmark through to a served HTTP API. The model predicts several hours
 ahead, is back-tested against naive baselines at every horizon, and is served by
